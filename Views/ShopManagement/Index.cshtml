@@ -1,0 +1,141 @@
+@model IEnumerable<TSENA.Models.Shop>
+@* @model IEnumerable<TSENA.Models.Product> *@
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopCreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShopLogoNetworkPath)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopCreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShopLogoNetworkPath)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="toutes_les_boutiques">
+
+@foreach (var item in Model) {
+
+
+
+    <div class="card_boutique">
+
+        <a asp-action="Details" asp-route-id="@item.Id">
+            
+            <img src="@item.ShopLogoNetworkPath" alt="">
+        
+        </a> 
+
+    </div>
+
+
+
+
+
+}
+
+    <div class="card_ajout_boutique" alt="Ajouter une boutique" title="Ajouter une boutique">
+
+        <img src="~/img/icon/square-plus.png">
+
+    </div>
+
+</div>
+
+
+    <div>
+
+        @* @Html.RenderPartial("../Product/Index.cshtml") *@
+        @* <partial name="FichierA" /> *@
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
