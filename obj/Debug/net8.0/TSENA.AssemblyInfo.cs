@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TSENA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30aaee364346d3d6e70de544e2b44de222a8a61f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4dbc468cbc8cf0d1d85bf2476e0475fdcc481d47")]
 [assembly: System.Reflection.AssemblyProductAttribute("TSENA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TSENA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
