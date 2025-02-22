@@ -502,3 +502,4 @@ E:\C#\PROJECT\TSENA\obj\Debug\net8.0\refint\TSENA.dll
 E:\C#\PROJECT\TSENA\obj\Debug\net8.0\TSENA.pdb
 E:\C#\PROJECT\TSENA\obj\Debug\net8.0\TSENA.genruntimeconfig.cache
 E:\C#\PROJECT\TSENA\obj\Debug\net8.0\ref\TSENA.dll
+E:\C#\PROJECT\TSENA\obj\Debug\net8.0\TSENA.sourcelink.json
