@@ -9,43 +9,10 @@
     <link rel="shortcut icon" href="~/img/logo/online-shopping.png" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <nav>
-                <ul class="navbar-nav flex-grow-1">
-                    <li>
-                        <a asp-area="" asp-controller="ShopManagement" asp-action="Index">
-                            <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Parametre">
-                            <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètre">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="right_side_bar">
-            <nav>
-                <ul class="userinfo-container">
-                    <li class="logo">Tsena <img src="~/img/logo/online-shopping.png" alt=""></li>
-                    @* <li>
-                        <div class="profil">
-                            <img src="~/img/profil/profil.JPG" alt="">
-                        </div>
-                    </li>*@
-                    <li>
-                        <button>Se connecter</button>
-                    </li>
-                </ul>
-            </nav>
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
-        </div>
-    </div>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
