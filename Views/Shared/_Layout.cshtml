@@ -10,7 +10,6 @@
 </head>
 <body>
     <div class="container">
-
         <div class="sidebar">
             <nav>
                 <ul class="navbar-nav flex-grow-1">
@@ -24,17 +23,9 @@
                             <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètre">
                         </a>
                     </li>
-                    <!-- <li>
-                        <a asp-area="" asp-controller="Product" asp-action="Index">
-                            <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètre">
-                        </a>
-                    </li> -->
                 </ul>
             </nav>
         </div>
-
-        
-
         <div class="right_side_bar">
             <nav>
                 <ul>
@@ -50,10 +41,7 @@
                 @RenderBody()
             </main>
         </div>
-
     </div>
-    
-
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
