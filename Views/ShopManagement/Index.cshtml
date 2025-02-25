@@ -1,6 +1,7 @@
 @model IEnumerable<TSENA.Models.Shop>
 @{
     ViewData["Title"] = "Index";
+    Layout = "_HomeLayout";
 }
 <div class="toutes_les_boutiques">
     @foreach (var item in Model) {
@@ -13,10 +14,6 @@
     <div class="card_ajout_boutique" alt="Ajouter une boutique" title="Ajouter une boutique">
         <img src="~/img/icon/square-plus.png">
     </div>
-</div>
-<div>
-    @* @Html.RenderPartial("../Product/Index.cshtml") *@
-    @* <partial name="FichierA" /> *@
 </div>
 
 
