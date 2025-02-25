@@ -1,6 +1,7 @@
 @model IEnumerable<TSENA.Models.Shop>
 @{
     ViewData["Title"] = "Index";
+    Layout = "_HomeLayout";
 }
 <div class="toutes_les_boutiques">
     @foreach (var item in Model) {
