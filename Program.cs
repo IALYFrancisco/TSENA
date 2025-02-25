@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<ProductContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ProductContext") ?? throw new InvalidOperationException("Connection string 'ProductContext' not found.")));
-builder.Services.AddDbContext<ShopManagementeContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ShopManagementeContext") ?? throw new InvalidOperationException("Connection string 'ShopManagementeContext' not found.")));
+using Pomelo.EntityFrameworkCore.MySql;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ShopManagementeContext>(options =>
+     options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    ));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
