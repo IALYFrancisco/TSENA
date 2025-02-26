@@ -11,13 +11,20 @@
 			</li>
 			<li>
 				<ul>
-					
+					<li>
+						<a asp-controller="ShopManagement" asp-action="Index">Accueil</a>
+					</li>
+					<li>
+						<a asp-controller="Home" asp-action="Login">Connexion</a>
+					</li>
+					<li>
+						<a asp-controller="Home" asp-action="Register">Inscription</a>
+					</li>
 				</ul>
 			</li>
 		</ul>
 	</nav>
 </header>
 <main>
-	<h1>Hello</h1>
 	@RenderBody()
 </main>
