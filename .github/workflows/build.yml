@@ -9,11 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps: Clone source code
-    uses: actions/checkout@v4
+    steps:
+    
+      - name: Clone source code
+        uses: actions/checkout@v4
 
-    steps: Restore project
-    run: dotnet restore
+      - name: Setup .NET sdk
+        uses: actions/setup-dotnet@v3
+        with: 
+          dotnet-version: '8.0'
+        
+      - name: Restore project
+        run: dotnet restore
 
-    steps: Build project
-    run: dotnet build
+      - name: Build project
+        run: dotnet build --configuration=release
