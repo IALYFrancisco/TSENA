@@ -16,8 +16,8 @@ WORKDIR /app
 COPY --from=build /out .
 
 # Définir l’environnement sur Production
-ENV ASPNETCORE_ENVIRONMENT=Production
-# ENV ASPNETCORE_ENVIRONMENT=Development
+# ENV ASPNETCORE_ENVIRONMENT=Production
+ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Exposer le port 5000 pour les requêtes HTTP
 EXPOSE 5000
