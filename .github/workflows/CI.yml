@@ -1,0 +1,40 @@
+# Workflow name
+name: Push app image to dockerhub 🐳
+
+# Event and branch
+on:
+  # Event that runs workflow 
+  push:
+    # The branch where the workflows will be runs
+    branches:
+      - main
+
+# Work to do, the work is divided on steps
+jobs:
+  # Workname
+  Build app docker image and push it to dockerhub:
+  # The os where the work will be executed
+  runs-on: ubuntu-latest
+
+  # Step where the environment pull the app source code
+  steps:
+  name: Pull app source code
+  uses: actions/checkout@v4
+
+  # Step where the environment log in to dockerhub
+  steps:
+  name: Log in to dockerhub
+  uses: actions/login-action@v3
+  with:
+    username: ${{ secrets.DOCKERHUB_USERNAME }}
+    password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  # Step where the environment build the app docker image
+  steps:
+  name: Building app docker image
+  run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/TSENA:${{github.run_umber}} .
+
+  # Step where the environment push the app docker image to dockerhub
+  steps:
+  name: Pushing app docker image to dockerhub
+  run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/TSENA:${{github.run_number}}

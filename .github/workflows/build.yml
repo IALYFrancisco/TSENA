@@ -1,0 +1,19 @@
+name: Build project
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: Clone source code
+    uses: actions/checkout@v4
+
+    steps: Restore project
+    run: dotnet restore
+
+    steps: Build project
+    run: dotnet build
