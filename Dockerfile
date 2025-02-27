@@ -22,4 +22,4 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 5000
 
 # Commande pour démarrer l'application
-ENTRYPOINT ["dotnet", "MonApplication.dll"]
+ENTRYPOINT ["dotnet", "TSENA.dll"]
