@@ -1,0 +1,30 @@
+@{
+	Layout = "_Layout";
+}
+
+<header>
+	<nav>
+		<ul>
+			<li>
+				<div class="logo-container">
+				</div>	
+			</li>
+			<li>
+				<ul>
+					<li>
+						<a asp-controller="ShopManagement" asp-action="Index">Accueil</a>
+					</li>
+					<li>
+						<a asp-controller="Home" asp-action="Login">Connexion</a>
+					</li>
+					<li>
+						<a asp-controller="Home" asp-action="Register">Inscription</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header>
+<main>
+	@RenderBody()
+</main>
