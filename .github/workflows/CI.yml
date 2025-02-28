@@ -42,8 +42,8 @@ jobs:
 
   # Step where the environment build the app docker image
     - name: Building app docker image
-      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/tsena:latest .
+      run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/tsena:${{ github.run_number }} .
 
   # Step where the environment push the app docker image to dockerhub
     - name: Pushing app docker image to dockerhub
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/tsena:latest
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/tsena:${{ github.run_number }}
