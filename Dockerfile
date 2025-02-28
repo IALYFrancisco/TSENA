@@ -10,6 +10,10 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o /out
 
+# Définir l’environnement sur Production
+ENV ASPNETCORE_ENVIRONMENT=Production
+# ENV ASPNETCORE_ENVIRONMENT=Development
+
 # Appliquer les migrations avant de passer à l'image runtime
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
