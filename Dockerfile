@@ -16,8 +16,8 @@ WORKDIR /app
 COPY --from=build /out .
 
 # Définir l’environnement sur Production
-# ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ASPNETCORE_ENVIRONMENT=Development
+ENV ASPNETCORE_ENVIRONMENT=Production
+# ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Appliquer les migrations lors de la construction
 RUN dotnet ef database update
