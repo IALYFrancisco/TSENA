@@ -19,6 +19,9 @@ COPY --from=build /out .
 # ENV ASPNETCORE_ENVIRONMENT=Production
 ENV ASPNETCORE_ENVIRONMENT=Development
 
+# Appliquer les migrations lors de la construction
+RUN dotnet ef database update
+
 # Exposer le port 5000 pour les requêtes HTTP
 EXPOSE 5000
 
