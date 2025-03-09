@@ -3,4 +3,19 @@
 	Layout = "_AuthenticationLayout";
 }
 
-<h1>Page de connexion</h1>
+<form action="">
+	<fieldset>
+		<legend>Connexion</legend>
+		<div class="element">
+			<label for="user_email">Saisissez votre email</label>
+			<input type="email" name="user_email" id="user_email" required placeholder="example@gmail.com">
+		</div>
+		<div class="element">
+			<label for="user_password">Saisissez votre mot de passe</label>
+			<input type="password" name="user_password" id="user_password" required placeholder="votre mot de passe">
+		</div>
+		<div class="button-container">
+			<button>connexion</button>
+		</div>
+	</fieldset>
+</form>
