@@ -8,5 +8,5 @@ public class User {
     public string? Email { get; set; }
     private string? Password { get; set; }
     [DataType(DataType.Date)]
-    public DateTime signInDate { get; set; }
+    public DateTime SignInDate { get; set; }
 }
