@@ -61,6 +61,7 @@ body div.container div.right_side_bar div.toutes_les_boutiques div.card_boutique
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 
@@ -139,7 +140,7 @@ body div.container div.right_side_bar nav ul li div.profil img{
   padding: 2px;
 }
 
-body div.container div.right_side_bar nav ul li.logo {
+.logo {
   font-family: test;
   font-size: 40px;
   margin-left: 15px;
@@ -160,7 +161,7 @@ body div.container div.right_side_bar nav ul li.logo img {
   margin-right: 30px;
 }
 
-.userinfo-container button {
+button {
   background-color: #663300;
   color: white;
   padding: 8px 15px;
@@ -168,9 +169,10 @@ body div.container div.right_side_bar nav ul li.logo img {
   border-radius: 3px;
   cursor: pointer;
   transition: 200ms;
+  outline: none;
 }
 
-.userinfo-container button:active {
+button:active {
   transition: 200ms;
   transform: scale(0.9);
 }

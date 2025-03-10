@@ -17,7 +17,13 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 # Appliquer les migrations avant de passer à l'image runtime
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
-RUN dotnet ef database update
+# RUN dotnet ef database update
+
+# Donner les permissions d'exécution au script
+RUN chmod +x updatedb.sh
+
+# Exécuter le script après le démarrage du conteneur
+CMD ["./updatedb.sh"]
 
 # Utiliser une image plus légère pour l’exécution de l’application
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
