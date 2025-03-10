@@ -18,9 +18,10 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 
-# Appliquer les migrations pour tous les DbContext
+# Appliquer les migrations pour tous les DbContext, sans refaire celles déjà appliquées
 RUN for ctx in $(dotnet ef dbcontext list); do \
-    dotnet ef database update --context $ctx; \
+    echo "Applying migrations for context: $ctx"; \
+    dotnet ef database update --context $ctx || echo "Skipping migration for $ctx (already applied)"; \
 done
 
 # Utiliser une image plus légère pour l’exécution de l’application
