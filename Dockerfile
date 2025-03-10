@@ -14,7 +14,7 @@ RUN dotnet publish -c Release -o /out
 ENV ASPNETCORE_ENVIRONMENT=Production
 # ENV ASPNETCORE_ENVIRONMENT=Development
 
-# Installer dotnet-ef dans l'image de construction
+# Installer dotnet-ef dans l'image de construction (build)
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
 RUN dotnet tool restore
@@ -26,13 +26,13 @@ WORKDIR /app
 # Copier les fichiers de l'application depuis l'étape build
 COPY --from=build /out .
 
+# Copier les outils dotnet-ef depuis l'étape build
+COPY --from=build /root/.dotnet/tools /root/.dotnet/tools
+ENV PATH="$PATH:/root/.dotnet/tools"
+
 # Copier le script de mise à jour de la base de données
 COPY --from=build /app/updatedb.sh .
 RUN chmod +x updatedb.sh  # S'assurer que le script est exécutable
-
-# Installer dotnet-ef dans l'image runtime
-RUN dotnet tool install --global dotnet-ef
-ENV PATH="$PATH:/root/.dotnet/tools"
 
 # Définir l’environnement sur Production
 ENV ASPNETCORE_ENVIRONMENT=Production
