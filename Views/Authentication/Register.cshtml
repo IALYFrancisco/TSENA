@@ -5,6 +5,13 @@
     Layout = "_AuthenticationLayout";
 }
 
+@if (ViewData["Error"] != null)
+{
+	<div class="error-container">
+    	<p>@ViewData["Error"]</p>
+	</div>
+}
+
 <form method="post" asp-controller="Authentication" asp-action="Register">
 	<fieldset>
 		<legend>Inscription</legend>
@@ -25,8 +32,3 @@
 		</div>
 	</fieldset>
 </form>
-
-@if (ViewData["Error"] != null)
-{
-    <p style="color: red;">@ViewData["Error"]</p>
-}
