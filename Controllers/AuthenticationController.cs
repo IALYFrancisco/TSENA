@@ -50,5 +50,9 @@ namespace TSENA.Controllers {
             }
         }
 
+        public IActionResult Login(){
+            return View();
+        }
+
     }
 }
