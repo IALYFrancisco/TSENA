@@ -36,3 +36,22 @@ label {
     padding: 0 5px;
     margin-top: 5px;
 }
+
+.error-container {
+    background-color: rgb(255, 255, 95);
+    box-shadow: 1px 1px 15px #9c9c9c57;
+    width: max-content;
+    padding: 10px 20px;
+    color: var(--couleurde_base);
+    margin: auto;
+    position: absolute;
+    left: -50%;
+    right: -50%;
+    top: 100px;
+    border-radius: 5px;
+    transition: 5s;
+}
+
+.error-container p {
+    font-size: 14px;
+}
