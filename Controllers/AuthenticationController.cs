@@ -24,13 +24,10 @@ namespace TSENA.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> Register([Bind("Name,Email,Password")] User model) {
-
-            Console.WriteLine($"Reçu : {model.Name}, {model.Email}, {model.Password}");
-
             if(ModelState.IsValid){
                 var existingUser = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if(existingUser != null){
-                    ViewData["Error"] = "Cet email existe déjà";
+                    ViewData["Error"] = "Un utilisateur avec cet email existe déjà.";
                     return View(model);
                 }
 
