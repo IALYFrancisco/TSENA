@@ -1,0 +1,32 @@
+@model TSENA.Models.User;
+
+@{
+    ViewData["title"] = "Inscription";
+    Layout = "_AuthenticationLayout";
+}
+
+<form method="post" asp-controller="User" asp-action="Register">
+	<fieldset>
+		<legend>Inscription</legend>
+		<div class="element">
+			<label for="Name">Saisissez votre nom</label>
+			<input asp-for="Name" type="text" name="Name" id="Name" required placeholder="example: John Doe">
+		</div>
+		<div class="element">
+			<label for="Email">Saisissez votre email</label>
+			<input asp-for="Email" type="email" name="Email" id="Email" required placeholder="example@gmail.com">
+		</div>
+		<div class="element">
+			<label for="Password">Saisissez votre mot de passe</label>
+			<input asp-for="Password" type="password" name="Password" id="Password" required placeholder="votre mot de passe">
+		</div>
+		<div class="button-container">
+			<button>soumettre</button>
+		</div>
+	</fieldset>
+</form>
+
+@if (ViewData["Error"] != null)
+{
+    <p style="color: red;">@ViewData["Error"]</p>
+}
