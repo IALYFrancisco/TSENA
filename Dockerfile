@@ -1,4 +1,4 @@
-# Utiliser une image officielle de .NET pour la compilation et la publication
+# Étape 1 : Construction et compilation de l'application
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
@@ -14,21 +14,21 @@ RUN dotnet publish -c Release -o /out
 ENV ASPNETCORE_ENVIRONMENT=Production
 # ENV ASPNETCORE_ENVIRONMENT=Development
 
-# Appliquer les migrations avant de passer à l'image runtime
+# Installer dotnet-ef et restaurer les outils
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"
-# RUN dotnet ef database update
+RUN dotnet tool restore
 
-# Donner les permissions d'exécution au script
-RUN chmod +x updatedb.sh
-
-# Exécuter le script après le démarrage du conteneur
-CMD ["./updatedb.sh"]
-
-# Utiliser une image plus légère pour l’exécution de l’application
+# Étape 2 : Préparation de l'image runtime plus légère
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+
+# Copier les fichiers de l'application depuis l'étape build
 COPY --from=build /out .
+
+# Copier le script de mise à jour de la base de données
+COPY --from=build /app/updatedb.sh .
+RUN chmod +x updatedb.sh  # S'assurer que le script est exécutable
 
 # Définir l’environnement sur Production
 ENV ASPNETCORE_ENVIRONMENT=Production
@@ -37,6 +37,5 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 # Exposer le port 5000 pour les requêtes HTTP
 EXPOSE 5000
 
-# Commande pour démarrer l'application
-# ENTRYPOINT ["dotnet", "TSENA.dll"]
+# Exécuter la mise à jour de la base de données puis lancer l’application
 ENTRYPOINT ["bash", "-c", "./updatedb.sh && dotnet TSENA.dll"]
