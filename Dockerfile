@@ -38,4 +38,5 @@ ENV ASPNETCORE_ENVIRONMENT=Production
 EXPOSE 5000
 
 # Commande pour démarrer l'application
-ENTRYPOINT ["dotnet", "TSENA.dll"]
+# ENTRYPOINT ["dotnet", "TSENA.dll"]
+ENTRYPOINT ["bash", "-c", "./updatedb.sh && dotnet TSENA.dll"]
