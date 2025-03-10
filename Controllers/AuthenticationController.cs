@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 using TSENA.Models;
 
 namespace TSENA.Controllers {
-    public class UserController : Controller {
+    public class AuthenticationController : Controller {
         private readonly UserContext _context;
 
-        public UserController(UserContext context){
+        public AuthenticationController(UserContext context){
             _context = context;
         }
 
