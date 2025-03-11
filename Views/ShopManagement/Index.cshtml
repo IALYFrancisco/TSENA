@@ -3,12 +3,22 @@
     ViewData["Title"] = "Toutes les boutiques";
     Layout = "_HomeLayout";
 }
+
 <div class="toutes_les_boutiques">
-    @foreach (var item in Model) {
-        <div class="card_boutique">
-            <a asp-action="Details" asp-route-id="@item.Id">
-                <img src="@item.ShopLogoNetworkPath" alt="">
-            </a> 
+    @if(User.Identity?.IsAuthenticated ?? false){    
+        @foreach (var item in Model) {
+            <div class="card_boutique">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    <img src="@item.ShopLogoNetworkPath" alt="">
+                </a> 
+            </div>
+        }
+    }
+    else{
+        <div class="message">
+            <a asp-action="Login" asp-controller="Authentication">
+                <h3>Vous devez vous connecter</h3>
+            </a>
         </div>
     }
     <div class="card_ajout_boutique" alt="Ajouter une boutique" title="Ajouter une boutique">
