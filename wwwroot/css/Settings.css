@@ -1,0 +1,13 @@
+.settings-container {
+    padding: 75px 20px 20px 20px;
+    /* background-color: orange; */
+}
+
+.settings-container h2 {
+    color: var(--couleurde_base);
+}
+
+.settings-container form {
+    width: 50%;
+    margin-top: 20px;
+}
