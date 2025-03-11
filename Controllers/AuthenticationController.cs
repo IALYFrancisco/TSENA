@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -50,8 +54,36 @@ namespace TSENA.Controllers {
             }
         }
 
+        [HttpGet]
         public IActionResult Login(){
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login (User model){
+            if(ModelState.IsValid){
+                var user = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if(user != null && VerifyPassword(model.Password, user.Password)){
+                    await SignInUser(user.Email);
+                    return RedirectToAction("Index", "ShopManagement");
+                }
+                ViewData["Error"] = "Email ou mot de passe incorrect";
+            }
+            return View(model);
+        }
+
+        private bool VerifyPassword(string password, string storedHash){
+            return HashPassword(password) == storedHash;
+        }
+
+        private async Task SignInUser(string Email){
+            var claims = new List<Claim>{
+                new Claim(ClaimTypes.Email, Email)
+            };
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
         }
 
     }
