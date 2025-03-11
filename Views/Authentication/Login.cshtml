@@ -1,21 +1,28 @@
+@model TSENA.Models.User;
+
 @{
 	ViewData["Title"] = "Se connecter";
 	Layout = "_AuthenticationLayout";
 }
 
-<form action="">
+<form method="POST" asp-action="Login" id="Auth-form">
 	<fieldset>
 		<legend>Connexion</legend>
 		<div class="element">
-			<label for="user_email">Saisissez votre email</label>
-			<input type="email" name="user_email" id="user_email" required placeholder="example@gmail.com">
+			<label for="Email">Saisissez votre email</label>
+			<input type="email" name="Email" id="Email" asp-for="Email" required placeholder="example@gmail.com">
 		</div>
 		<div class="element">
-			<label for="user_password">Saisissez votre mot de passe</label>
-			<input type="password" name="user_password" id="user_password" required placeholder="votre mot de passe">
+			<label for="Password">Saisissez votre mot de passe</label>
+			<input type="password" name="Password" id="Password" asp-for="Password" required placeholder="votre mot de passe">
 		</div>
 		<div class="button-container">
 			<button>connexion</button>
 		</div>
 	</fieldset>
 </form>
+
+@if (ViewData["Error"] != null)
+{
+    <p style="color: red;">@ViewData["Error"]</p>
+}

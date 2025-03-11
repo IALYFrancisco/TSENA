@@ -48,6 +48,7 @@ body div.container div.sidebar nav ul li a img {
 body div.container div.right_side_bar div.toutes_les_boutiques {
   display: flex;
   padding: 40px;
+  position: relative;
 }
 
 body div.container div.right_side_bar div.toutes_les_boutiques div.card_boutique a{
@@ -175,4 +176,17 @@ button {
 button:active {
   transition: 200ms;
   transform: scale(0.9);
+}
+
+.message {
+  width: max-content;
+  position: absolute;
+  left: -50%;
+  right: -50%;
+  top: 250px;
+  margin: auto;
+}
+
+.message a {
+  color: var(--couleurde_base);
 }

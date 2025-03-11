@@ -6,16 +6,29 @@
         <div class="sidebar">
             <nav>
                 <ul class="navbar-nav flex-grow-1">
-                    <li>
-                        <a asp-area="" asp-controller="ShopManagement" asp-action="Index">
-                            <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
-                        </a>
-                    </li>
-                    <li>
-                        <a asp-area="" asp-controller="Home" asp-action="Parametre">
-                            <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètre">
-                        </a>
-                    </li>
+                    @if(User.Identity?.IsAuthenticated ?? false){
+                        <li>
+                            <a asp-area="" asp-controller="ShopManagement" asp-action="Index">
+                                <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Parametre">
+                                <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètres">
+                            </a>
+                        </li>
+                    }else{
+                        <li class="disabled-link">
+                            <a asp-area="">
+                                <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
+                            </a>
+                        </li>
+                        <li class="disabled-link">
+                            <a asp-area="">
+                                <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètres">
+                            </a>
+                        </li>
+                    }
                 </ul>
             </nav>
         </div>
@@ -30,11 +43,21 @@
                             </div>
                         </li>
                     *@
-                    <li>
-                        <a asp-controller="Authentication" asp-action="Login">
-                            <button>Se connecter</button>
-                        </a>
-                    </li>
+                    @if(User.Identity?.IsAuthenticated ?? false){
+                        <li>
+                            <form asp-action="Logout" asp-controller="Authentication">
+                                <a>
+                                    <button>Se déconnecter</button>
+                                </a>
+                            </form>
+                        </li>
+                    }else{
+                        <li>
+                            <a asp-controller="Authentication" asp-action="Login">
+                                <button>Se connecter</button>
+                            </a>
+                        </li>
+                    }
                 </ul>
             </nav>
             <main role="main" class="pb-3">
