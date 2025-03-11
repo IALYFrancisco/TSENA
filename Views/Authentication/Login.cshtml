@@ -21,3 +21,8 @@
 		</div>
 	</fieldset>
 </form>
+
+@if (ViewData["Error"] != null)
+{
+    <p style="color: red;">@ViewData["Error"]</p>
+}
