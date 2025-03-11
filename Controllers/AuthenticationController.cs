@@ -86,5 +86,11 @@ namespace TSENA.Controllers {
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Logout(){
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "ShopManagement");
+        }
+
     }
 }
