@@ -65,8 +65,6 @@ namespace TSENA.Controllers {
                 var user = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if(user != null && VerifyPassword(model.Password, user.Password)){
                     await SignInUser(user.Email);
-                    HttpContext.Session.SetString("UserEmail", user.Email);
-                    HttpContext.Session.SetString("UserName", user.Name);
                     return RedirectToAction("Index", "ShopManagement");
                 }
                 ViewData["Error"] = "Email ou mot de passe incorrect";

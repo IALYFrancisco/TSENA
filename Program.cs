@@ -27,8 +27,6 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSession();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -47,8 +45,6 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
-
-app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
