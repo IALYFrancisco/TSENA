@@ -33,10 +33,13 @@ public class HomeController : Controller
         var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
 
         // Crée un modèle pour transmettre les informations (nom et email)
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
         var userConnected = new User {
-            Name = user?.Name,
-            Email = user?.Email
+            Name = user.Name,
+            Email = user.Email,
+            Password = user.Password
         };
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
         // Passe le modèle à la vue
         return View(userConnected);
