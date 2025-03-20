@@ -36,7 +36,9 @@ namespace TSENA.Controllers {
                 }
 
                 // Correction ici
+#pragma warning disable CS8604 // Possible null reference argument.
                 model.Password = HashPassword(model.Password);
+#pragma warning restore CS8604 // Possible null reference argument.
 
                 _context.User.Add(model);
                 await _context.SaveChangesAsync();
@@ -63,10 +65,12 @@ namespace TSENA.Controllers {
         public async Task<IActionResult> Login (User model){
             if(ModelState.IsValid){
                 var user = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if(user != null && VerifyPassword(model.Password, user.Password)){
+#pragma warning disable CS8604 // Possible null reference argument.
+                if (user != null && VerifyPassword(model.Password, user.Password)){
                     await SignInUser(user.Email);
                     return RedirectToAction("Index", "ShopManagement");
                 }
+#pragma warning restore CS8604 // Possible null reference argument.
                 ViewData["Error"] = "Email ou mot de passe incorrect";
             }
             return View(model);
