@@ -141,13 +141,14 @@ body div.container div.right_side_bar nav ul li div.profil img{
   padding: 2px;
 }
 
-.logo {
+.logo a {
   font-family: test;
   font-size: 40px;
   margin-left: 15px;
   cursor:pointer;
   display: flex;
   align-items: center;
+  color: black;
 }
 
 body div.container div.right_side_bar nav ul li.logo::first-letter {
