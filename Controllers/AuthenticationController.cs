@@ -92,5 +92,9 @@ namespace TSENA.Controllers {
             return RedirectToAction("Index", "ShopManagement");
         }
 
+        public IActionResult ForgotPassword(){
+            return View();
+        }
+
     }
 }
