@@ -21,7 +21,11 @@ namespace TSENA.Controllers
         // GET: ShopManagement
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Shop.ToListAsync());
+            if(User.Identity?.IsAuthenticated ?? false){
+                return View(await _context.Shop.ToListAsync());
+            }else{
+                return View();
+            }
         }
 
         // GET: ShopManagement/Details/5
