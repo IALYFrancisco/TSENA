@@ -12,5 +12,5 @@ public class ResetPasswordTokensContext : DbContext
     {
     }
 
-    public DbSet<TSENA.Models.ResetPasswordTokens> ResetPassword {get;set;} = default!;
+    public DbSet<TSENA.Models.ResetPasswordTokens> ResetPasswordTokens {get;set;} = default!;
 }
