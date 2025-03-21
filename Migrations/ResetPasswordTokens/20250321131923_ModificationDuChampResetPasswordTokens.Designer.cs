@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace TSENA.Migrations.ResetPasswordTokens
 {
     [DbContext(typeof(ResetPasswordTokensContext))]
-    partial class ResetPasswordTokensContextModelSnapshot : ModelSnapshot
+    [Migration("20250321131923_ModificationDuChampResetPasswordTokens")]
+    partial class ModificationDuChampResetPasswordTokens
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,10 +33,13 @@ namespace TSENA.Migrations.ResetPasswordTokens
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ConfirmPassword")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Email")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<DateTime>("ExpirationDate")
                         .HasColumnType("datetime(6)");
@@ -42,10 +48,13 @@ namespace TSENA.Migrations.ResetPasswordTokens
                         .HasColumnType("tinyint(1)");
 
                     b.Property<string>("NewPassword")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Token")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
