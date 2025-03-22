@@ -185,7 +185,7 @@ namespace TSENA.Controllers {
             return View();
         }
 
-        [HttpGet("NewPassword")]
+        [HttpGet]
         public IActionResult NewPassword(string token){
             if(string.IsNullOrEmpty(token)){
                 return BadRequest("Token invalide.");
@@ -200,7 +200,7 @@ namespace TSENA.Controllers {
             return View("NewPassword", new ResetPasswordTokens {Token = token} );
         }
 
-        [HttpPost("NewPassword")]
+        [HttpPost]
         public async Task<IActionResult> NewPassword(ResetPasswordTokens model){
             if(!ModelState.IsValid){
                 return View("NewPassword", model);
