@@ -1,4 +1,10 @@
 @model TSENA.Models.Shop
+
+@{
+    ViewData["Title"] = "Shop name";
+    Layout = "_HomeLayout";
+}
+
 <p>You are at @Html.DisplayFor(model => model.ShopName)</p>
 
 <div>
@@ -6,4 +12,3 @@
     <hr />
     
 </div>
-
