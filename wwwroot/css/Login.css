@@ -55,3 +55,18 @@ label {
 .error-container p {
     font-size: 14px;
 }
+
+form#Auth-form .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+form#Auth-form a {
+    color: var(--couleurde_base);
+    font-size: 13px;
+}
+
+form#Auth-form a:hover {
+    text-decoration: underline;
+}
