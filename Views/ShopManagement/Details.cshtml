@@ -5,10 +5,60 @@
     Layout = "_HomeLayout";
 }
 
-<p>You are at @Html.DisplayFor(model => model.ShopName)</p>
-
-<div>
-
-    <hr />
-    
-</div>
+<main class="shop-container">
+    <header>
+        <div class="shopinfo">
+            <p>Vous êtes chez</p><h2>@Html.DisplayFor(model => model.ShopName) :</h2>
+        </div>
+        <div class="searchbar">
+            <input type="text" name="" id="" placeholder="Chercher un produit">
+        </div>
+    </header>
+    <main class="product-section">
+        <section class="sidebar">
+            <h3>Sidebar des shops</h3>
+        </section>
+        <section class="products">
+            <div class="product">
+                <div class="img-container">
+                    <img src="~/img/katemiraine (1).jpg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="name">Ensemble jean</p>
+                    <p class="price">55.000 Ar</p>
+                    <button>Ajout au panier</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-container">
+                    <img src="~/img/katemiraine (2).jpg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="name">Ensemble jean</p>
+                    <p class="price">55.000 Ar</p>
+                    <button>Ajout au panier</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-container">
+                    <img src="~/img/katemiraine (3).jpg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="name">Ensemble jean</p>
+                    <p class="price">55.000 Ar</p>
+                    <button>Ajout au panier</button>
+                </div>
+            </div>
+            <div class="product">
+                <div class="img-container">
+                    <img src="~/img/katemiraine (4).jpg" alt="">
+                </div>
+                <div class="product-info">
+                    <p class="name">Ensemble jean</p>
+                    <p class="price">55.000 Ar</p>
+                    <button>Ajout au panier</button>
+                </div>
+            </div>
+        </section>
+    </main>
+</main>
