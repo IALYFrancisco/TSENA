@@ -1,6 +1,13 @@
-form#Auth-form, form#Forgot-Password-Form{
+form#Auth-form,
+form#Forgot-Password-Form {
     width: 95%;
     max-width: 300px;
+    margin: 100px auto 0 auto;
+}
+
+form#new-password {
+    width: 95%;
+    max-width: 450px;
     margin: 100px auto 0 auto;
 }
 
