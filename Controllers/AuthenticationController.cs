@@ -223,6 +223,12 @@ namespace TSENA.Controllers {
                 return View("NewPassword", model);
             }
 
+            //Vérifier que NewPassword et ConfirmPassword sont égaux
+            if(model.NewPassword != model.ConfirmPassword){
+                ViewData["Error"] = "Les deux mot de passe ne se ressemblent pas, essayez à nouveau";
+                return View();
+            }
+
 #pragma warning disable CS8604 // Possible null reference argument.
             user.Password = HashPassword(model.NewPassword);
 #pragma warning restore CS8604 // Possible null reference argument.
