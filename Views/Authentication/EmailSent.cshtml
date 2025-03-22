@@ -1,12 +1,11 @@
 @{
     ViewData["Title"] = "Confirmation de réinitialisation";
+    Layout = "_AuthenticationLayout";
 }
 
-<h2>@ViewData["Title"]</h2>
-<p>
-    Si un compte est associé à cette adresse e-mail, vous recevrez un message contenant un lien pour réinitialiser votre mot de passe.
-</p>
-<p>
-    Veuillez vérifier votre boîte de réception et suivez les instructions.
-</p>
-<a asp-action="Login">Retour à la connexion</a>
+<main class="message-container">
+    <h2>@ViewData["Title"]</h2>
+    <p>
+        On vous a envoyé un lien de réinitialisation de mot de passe à votre adresse email.
+    </p>
+</main>

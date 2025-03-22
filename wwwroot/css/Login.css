@@ -70,3 +70,15 @@ form#Auth-form a {
 form#Auth-form a:hover {
     text-decoration: underline;
 }
+
+.message-container {
+    /* background-color: red; */
+    width: 50%;
+    margin: 100px auto 0 auto;
+    text-align: center;
+    color: var(--couleurde_base);
+}
+
+.message-container h2 {
+    margin-bottom: 20px;
+}
