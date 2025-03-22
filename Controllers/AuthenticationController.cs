@@ -113,10 +113,13 @@ namespace TSENA.Controllers {
 
         [HttpPost]
         public async Task<IActionResult> ForgotPassword(string email){
-            var user = _context.User.FirstOrDefault(u => u.Email == email);
             
+            // Vérification de l'utilisateur avec l'email
+            var user = _context.User.FirstOrDefault(u => u.Email == email);
+
             if(user == null){
-                ModelState.AddModelError("", "Aucun compte associé à cet emai");
+                ViewData["error"] = "Aucun compte associé à cet email";
+                return View();
             }
 
             var token = Guid.NewGuid().ToString();
@@ -134,8 +137,6 @@ namespace TSENA.Controllers {
 
             var resetLink = Url.Action("NewPassword", "Authentication", new { token = token }, Request.Scheme);
             
-            Console.WriteLine(resetLink);
-
             await SendPasswordResetEmail(email, resetLink);
 
             return RedirectToAction("EmailSent");
