@@ -364,3 +364,58 @@ table tfoot.total tr td.int {
 table tr:hover {
   background-color: #66330018;
 }
+
+#details-product {
+  width: 100%;
+  color: var(--couleurde_base);
+}
+
+#details-container {
+  width: 50%;
+  margin: 100px auto 0 auto;
+}
+
+
+#details-container #contents {
+  width: 100%;
+  height: 430px;
+  margin-top: 20px;
+  display: flex;
+  column-gap: 15px;
+}
+
+#details-container #contents #img {
+  width: 50%;
+  height: 100%;
+}
+
+#details-container #contents #img .img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#details-container #contents #img .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#details-container #contents #info-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#details-container #contents #info-container .descriptions {
+  font-size: 14px;
+  margin-top: 13px;
+}
+
+#details-container #contents #info-container .price {
+  margin-bottom: 13px;
+  font-weight: 500;
+}

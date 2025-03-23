@@ -55,4 +55,8 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult DetailsProduct(){
+        return View();
+    }
+
 }
