@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Panier";
+    Layout = "_HomeLayout";
+}
+
+<main class="panier">
+    <h2>Votre panier</h2>
+    <section class="panier-product">
+        <table>
+            <tr>
+                <td class="img-container">
+                    <img src="~/img/katemiraine (1).jpg" alt="">
+                </td>
+                <td class="info">
+                    <h4 class="title">Ensemble Jean</h4>
+                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia at repellendus, obcaecati ratione totam ipsum omnis numquam alias praesentium! Pariatur expedita atque rerum temporibus esse, blanditiis nostrum sunt voluptatem natus!</p>
+                </td>
+                <td class="price">
+                    55,000 Ar
+                </td>
+                <td class="action">
+                    <button>
+                        <img src="~/img/retirer-icon.png" alt="">
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td class="img-container">
+                    <img src="~/img/aigledor (3).jpg" alt="">
+                </td>
+                <td class="info">
+                    <h4 class="title">Ensemble Jean</h4>
+                    <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia at repellendus, obcaecati ratione totam ipsum omnis numquam alias praesentium! Pariatur expedita atque rerum temporibus esse, blanditiis nostrum sunt voluptatem natus!</p>
+                </td>
+                <td class="price">
+                    35,000 Ar
+                </td>
+                <td class="action">
+                    <button>
+                        <img src="~/img/retirer-icon.png" alt="">
+                    </button>
+                </td>
+            </tr>
+            <tfoot class="total">
+                <tr>
+                    <td class="title">
+                        <h4>Total:</h4>
+                    </td>
+                    <td class="int">
+                        2 produits
+                    </td>
+                    <td class="price">90,000 Ar</td>
+                </tr>
+            </tfoot>
+        </table>
+    </section>
+</main>

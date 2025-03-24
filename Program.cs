@@ -15,6 +15,14 @@ builder.Services.AddDbContext<UserContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
+
+builder.Services.AddDbContext<ResetPasswordTokensContext>(options => 
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    )
+);
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

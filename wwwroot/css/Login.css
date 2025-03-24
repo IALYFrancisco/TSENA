@@ -1,6 +1,13 @@
-form#Auth-form {
+form#Auth-form,
+form#Forgot-Password-Form {
     width: 95%;
     max-width: 300px;
+    margin: 100px auto 0 auto;
+}
+
+form#new-password {
+    width: 95%;
+    max-width: 450px;
     margin: 100px auto 0 auto;
 }
 
@@ -54,4 +61,30 @@ label {
 
 .error-container p {
     font-size: 14px;
+}
+
+form#Auth-form .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+form#Auth-form a {
+    color: var(--couleurde_base);
+    font-size: 13px;
+}
+
+form#Auth-form a:hover {
+    text-decoration: underline;
+}
+
+.message-container {
+    width: 50%;
+    margin: 100px auto 0 auto;
+    text-align: center;
+    color: var(--couleurde_base);
+}
+
+.message-container h2 {
+    margin-bottom: 20px;
 }

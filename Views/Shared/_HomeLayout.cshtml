@@ -13,6 +13,11 @@
                             </a>
                         </li>
                         <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Chart">
+                                <img src="~/img/chart.png" alt="Panier" title="Panier">
+                            </a>
+                        </li>
+                        <li>
                             <a asp-area="" asp-controller="Home" asp-action="Parametre">
                                 <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètres">
                             </a>
@@ -21,6 +26,11 @@
                         <li class="disabled-link">
                             <a asp-area="">
                                 <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
+                            </a>
+                        </li>
+                        <li class="disabled-link">
+                            <a asp-area="">
+                                <img src="~/img/chart.png" alt="Panier" title="Panier">
                             </a>
                         </li>
                         <li class="disabled-link">
@@ -35,7 +45,11 @@
         <div class="right_side_bar">
             <nav>
                 <ul class="userinfo-container">
-                    <li class="logo">Tsena <img src="~/img/logo/online-shopping.png" alt=""></li>
+                    <li class="logo">
+                        <a asp-action="Index" asp-controller="ShopManagement">
+                            Tsena <img src="~/img/logo/online-shopping.png" alt="">
+                        </a>
+            	    </li>
                     @*
                         <li>
                             <div class="profil">
