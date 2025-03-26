@@ -2,8 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Env.Load();
+
+string? apiKey = Environment.GetEnvironmentVariable("BREVO_API_KEY");
+
+builder.Configuration["API-KEY"] = apiKey;
+
 builder.Services.AddDbContext<ShopManagementeContext>(options =>
      options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),

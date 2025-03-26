@@ -1,3 +1,6 @@
 # Répertoire indespensable qu'au développement
 bin
 obj
+
+# fichier varible d'environnement
+.env
