@@ -17,6 +17,9 @@ using RestSharp;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using TSENA.Models;
+using DotNetEnv;
+
+Env.Load();
 
 namespace TSENA.Controllers {
     public class AuthenticationController : Controller {
@@ -149,9 +152,7 @@ namespace TSENA.Controllers {
                 throw new ArgumentNullException(nameof(resetLink), "Le lien de réinitialisation ne peut pas être null.");
             }
 
-            var apiKey = _configuration["EmailSettings:tsena-key"];
-
-            
+            var apiKey = Environment.GetEnvironmentVariable("BREVO_API_KEY");
 
             var client = new RestClient("https://api.brevo.com/v3/smtp/email");
             var request = new RestRequest("" , Method.Post);
