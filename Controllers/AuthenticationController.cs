@@ -149,9 +149,10 @@ namespace TSENA.Controllers {
                 throw new ArgumentNullException(nameof(resetLink), "Le lien de réinitialisation ne peut pas être null.");
             }
 
-            Console.WriteLine(resetLink);
-
             var apiKey = _configuration["EmailSettings:tsena-key"];
+
+            
+
             var client = new RestClient("https://api.brevo.com/v3/smtp/email");
             var request = new RestRequest("" , Method.Post);
 
