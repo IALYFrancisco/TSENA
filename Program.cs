@@ -8,9 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
 
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
-string apiKey = Environment.GetEnvironmentVariable("BREVO_API_KEY");
-#pragma warning restore CS8600 // Converting null literal or possible null value to non-nullable type.
+string? apiKey = Environment.GetEnvironmentVariable("BREVO_API_KEY");
 
 builder.Configuration["API-KEY"] = apiKey;
 

@@ -150,7 +150,6 @@ namespace TSENA.Controllers {
             }
 
             var apiKey = _configuration["API-KEY"];
-
             var client = new RestClient("https://api.brevo.com/v3/smtp/email");
             var request = new RestRequest("" , Method.Post);
 
