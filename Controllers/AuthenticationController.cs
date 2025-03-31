@@ -31,16 +31,20 @@ namespace TSENA.Controllers {
             _configuration = configuration;
         }
 
+        // Action qui répond à la méthode GET sur la route /Authentication/Register --> Inscription des utilisateurs | Cette action ne retourne qu'un simple fichier de vue
         [HttpGet]
         public IActionResult Register(){
             return View();
         }
 
+        /* Action qui répond à la méthode POST sur la route /Authentication/Register --> Inscription des utilisateurs
+        Cette action est liée à sa vue correspondante. Elle prend en paramètre le modèle de données à utiliser qui n'est autre que le modèle de donnée utilisateur*/
+        
         [HttpPost]
         public async Task<IActionResult> Register([Bind("Name,Email,Password")] User model) {
-            if(ModelState.IsValid){
-                var existingUser = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
-                if(existingUser != null){
+            if(ModelState.IsValid){ // Ici on vérifie si les données fournies par l'utilisateur sont correctes ou pas
+                var existingUser = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email); //Là on vérifie si l'utilisateur existe déjà dans la base de données ou pas
+                if(existingUser != null){ // Dans cet bloc se trouve les instructions à suivre au cas où l'user existe déjà dans la base de données
                     ViewData["Error"] = "Un utilisateur avec cet email existe déjà.";
                     return View(model);
                 }
