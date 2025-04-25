@@ -53,7 +53,7 @@ namespace TSENA.Controllers {
 #pragma warning disable CS8604 // Possible null reference argument.
                 model.Password = HashPassword(model.Password);
 #pragma warning restore CS8604 // Possible null reference argument.
-
+                model.SignInDate = DateTime.Now;
                 _context.User.Add(model);
                 await _context.SaveChangesAsync();
 
