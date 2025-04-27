@@ -5,6 +5,13 @@
 	Layout = "_AuthenticationLayout";
 }
 
+@if (ViewData["Error"] != null)
+{
+	<div class="alert alert-error">
+    	<p>@ViewData["Error"]</p>
+	</div>
+}
+
 <form method="POST" asp-action="Login" id="Auth-form">
 	<fieldset>
 		<legend>Connexion</legend>
@@ -22,8 +29,3 @@
 		</div>
 	</fieldset>
 </form>
-
-@if (ViewData["Error"] != null)
-{
-    <p style="color: red;">@ViewData["Error"]</p>
-}

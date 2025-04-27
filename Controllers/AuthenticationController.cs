@@ -87,7 +87,7 @@ namespace TSENA.Controllers {
                     return RedirectToAction("Index", "ShopManagement");
                 }
 #pragma warning restore CS8604 // Possible null reference argument.
-                ViewData["Error"] = "Email ou mot de passe incorrect";
+                ViewData["Error"] = "Email ou mot de passe incorrect.";
             }
             return View(model);
         }

@@ -88,3 +88,24 @@ form#Auth-form a:hover {
 .message-container h2 {
     margin-bottom: 20px;
 }
+
+.alert {
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 3px;
+    position: absolute;
+    top: 100px;
+    left: -50%;
+    right: -50%;
+    margin: auto;
+    width: max-content;
+    color: white;
+}
+
+.alert-success {
+    background-color: green;
+}
+
+.alert-error {
+    background-color: crimson;
+}
