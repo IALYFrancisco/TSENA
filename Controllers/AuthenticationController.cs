@@ -56,7 +56,7 @@ namespace TSENA.Controllers {
                 model.SignInDate = DateTime.Now;
                 _context.User.Add(model);
                 await _context.SaveChangesAsync();
-
+                TempData["success"] = "Vous êtes iscrit.";
                 return RedirectToAction("Login");
             }
 
@@ -76,8 +76,6 @@ namespace TSENA.Controllers {
         }
 
         [HttpPost]
-        
-        
         public async Task<IActionResult> Login (User model){
             if(ModelState.IsValid){
                 var user = await _context.User.FirstOrDefaultAsync(u => u.Email == model.Email);
