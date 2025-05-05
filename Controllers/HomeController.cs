@@ -59,4 +59,9 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult ChangePassword(){
+        return View();
+    }
+
 }
