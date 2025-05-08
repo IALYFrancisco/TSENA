@@ -1,6 +1,5 @@
 .settings-container {
     padding: 75px 20px 20px 20px;
-    /* background-color: orange; */
 }
 
 .settings-container h2 {
@@ -10,4 +9,19 @@
 .settings-container form {
     width: 50%;
     margin-top: 20px;
+}
+
+.input-btn {
+    display: flex;
+    align-items: center;
+}
+
+.input-btn a {
+    display: flex;
+    align-items: center;
+    margin: 5px 0 0 10px;
+}
+
+.input-btn img {
+    width: 20px;
 }
