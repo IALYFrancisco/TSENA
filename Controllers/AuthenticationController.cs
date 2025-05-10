@@ -147,7 +147,7 @@ namespace TSENA.Controllers {
 
         }
 
-        public async Task SendPasswordResetEmail(string email, string? resetLink){
+        public async Task SendPasswordResetEmail(string email, string? resetLink, string name){
 
             if(string.IsNullOrEmpty(resetLink)){
                 throw new ArgumentNullException(nameof(resetLink), "Le lien de réinitialisation ne peut pas être null.");
