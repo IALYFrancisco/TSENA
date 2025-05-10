@@ -141,13 +141,13 @@ namespace TSENA.Controllers {
 
             var resetLink = Url.Action("NewPassword", "Authentication", new { token = token }, Request.Scheme);
             
-            await SendPasswordResetEmail(email, resetLink);
+            await SendPasswordResetEmail(email, resetLink, user.Name);
 
             return RedirectToAction("EmailSent");
 
         }
 
-        public async Task SendPasswordResetEmail(string email, string? resetLink){
+        public async Task SendPasswordResetEmail(string email, string? resetLink, string? _name){
 
             if(string.IsNullOrEmpty(resetLink)){
                 throw new ArgumentNullException(nameof(resetLink), "Le lien de réinitialisation ne peut pas être null.");
@@ -170,8 +170,7 @@ namespace TSENA.Controllers {
                 },
                 to = new [] { new { email = email } },
                 subject = "Réinitialisation de votre mot de passe",
-                htmlContent = $"<strong>Bonjour,</strong><br><br>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :<br><a href=\"{resetLink}\">Réinitialiser le mot de passe</a><br><br>Cordialement,<br>L'équipe",
-                textContent = $"Bonjour,\n\nPour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :\n{resetLink}\n\nCordialement,\nL'équipe"
+                htmlContent = $"<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>Document</title></head><body><main style=\"width: 100%; max-width: 400px; margin: 100px auto;\"><h2 style=\"margin-bottom: 40px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #663300;\">Chengement de mot de passe :</h2><span><p style=\"font-size: 15px; display: inline;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #663300;\">Bonjour</p><h4 style=\"display: inline;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #663300;\">{_name}.</h4><p style=\"font-size: 15px; display: inline;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: #663300;\">Cliquez sur le bouton ci-dessous pour réinitialiser votre mot de passe.</p></span><a href=\"{resetLink}\"><button style=\"background-color: #663300;color: white;padding: 8px 15px;border: none;border-radius: 3px;cursor: pointer;transition: 200ms;outline: none;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;margin-top: 25px;\">Réinitialiser mon mot de passe</button></a></main></body></html>",
             };
 
             request.AddJsonBody(body);
