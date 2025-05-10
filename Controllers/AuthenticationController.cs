@@ -170,7 +170,8 @@ namespace TSENA.Controllers {
                 },
                 to = new [] { new { email = email } },
                 subject = "Réinitialisation de votre mot de passe",
-                htmlContent = $"<strong>Bonjour,</strong><br><br>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :<br><a href=\"{resetLink}\">Réinitialiser le mot de passe</a><br><br>Cordialement,<br>L'équipe"
+                htmlContent = $"<strong>Bonjour,</strong><br><br>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant :<br><a href=\"{resetLink}\">Réinitialiser le mot de passe</a><br><br>Cordialement,<br>L'équipe",
+                htmlContent = $""
             };
 
             request.AddJsonBody(body);
