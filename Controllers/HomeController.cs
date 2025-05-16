@@ -65,8 +65,8 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult ChangePassword(){
-        return View();
+    public Task<IActionResult> ChangePassword(ChangePasswordModel model, User user){
+        return View(model);
     }
 
 }
