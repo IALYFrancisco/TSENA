@@ -5,6 +5,7 @@ using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TSENA.Controllers;
 
@@ -19,11 +20,7 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
+    [Authorize]
     public async Task<IActionResult> Parametre()
     {
         // Récupère l'email de l'utilisateur connecté à partir des Claims
@@ -51,17 +48,25 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    [Authorize]
     public IActionResult Chart(){
         return View();
     }
 
+    [Authorize]
     public IActionResult DetailsProduct(){
         return View();
     }
 
+    [Authorize]
     [HttpGet]
     public IActionResult ChangePassword(){
         return View();
     }
+
+    // [HttpPost]
+    // public Task<IActionResult> ChangePassword(ChangePasswordModel model, User user){
+    //     return View(model);
+    // }
 
 }
