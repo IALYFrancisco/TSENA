@@ -6,7 +6,7 @@
         <div class="sidebar">
             <nav>
                 <ul class="navbar-nav flex-grow-1">
-                    @if(User.Identity?.IsAuthenticated ?? false){
+                    @* @if(User.Identity?.IsAuthenticated ?? false){ *@
                         <li>
                             <a asp-area="" asp-controller="ShopManagement" asp-action="Index">
                                 <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
@@ -22,7 +22,7 @@
                                 <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètres">
                             </a>
                         </li>
-                    }else{
+                    @* }else{
                         <li class="disabled-link">
                             <a asp-area="">
                                 <img src="~/img/icon/store-alt.png" alt="Toutes les boutiques" title="Toutes les boutiques">
@@ -38,7 +38,7 @@
                                 <img src="~/img/icon/api.png" alt="Paramètre" title="Paramètres">
                             </a>
                         </li>
-                    }
+                    } *@
                 </ul>
             </nav>
         </div>
