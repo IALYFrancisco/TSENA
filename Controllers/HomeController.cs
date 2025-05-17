@@ -20,11 +20,6 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
     public async Task<IActionResult> Parametre()
     {
         // Récupère l'email de l'utilisateur connecté à partir des Claims
