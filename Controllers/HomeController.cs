@@ -20,6 +20,7 @@ public class HomeController : Controller
         _context = context;
     }
 
+    [Authorization]
     public async Task<IActionResult> Parametre()
     {
         // Récupère l'email de l'utilisateur connecté à partir des Claims
@@ -47,14 +48,17 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    [Authorization]
     public IActionResult Chart(){
         return View();
     }
 
+    [Authorization]
     public IActionResult DetailsProduct(){
         return View();
     }
 
+    [Authorization]
     [HttpGet]
     public IActionResult ChangePassword(){
         return View();
