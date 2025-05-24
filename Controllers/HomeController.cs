@@ -72,6 +72,7 @@ public class HomeController : Controller
             var email = User.FindFirstValue(ClaimTypes.Email); 
             var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
             if(model.NewPassword == model.ConfirmPassword){
+                model.NewPassword = HashPassword(model.NewPassword);
                 user.Password = model.NewPassword; 
             }
             _context.User.Update(user);
