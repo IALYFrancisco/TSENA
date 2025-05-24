@@ -84,10 +84,10 @@ public class HomeController : Controller
     }
 
     private string HashPassword(string Password){
-            using (var sha256 = SHA256.Create()){
-                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
-                return Convert.ToBase64String(hashBytes);
-            }
+        using (var sha256 = SHA256.Create()){
+            byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+            return Convert.ToBase64String(hashBytes);
         }
+    }
 
 }
