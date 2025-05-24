@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Text;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using TSENA.Models;
 using System.Security.Claims;
