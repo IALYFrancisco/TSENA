@@ -64,9 +64,21 @@ public class HomeController : Controller
         return View();
     }
 
-    // [HttpPost]
-    // public Task<IActionResult> ChangePassword(ChangePasswordModel model, User user){
-    //     return View(model);
-    // }
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(ChangePasswordModel model){
+        if(ModelState.IsValid){
+            var email = User.FindFirstValue(ClaimTypes.Email); 
+            var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
+            if(model.NewPassword == model.ConfirmPassword){
+                user.Password = model.NewPassword; 
+            }
+            _context.User.Update(user);
+            _context.SaveChanges();
+            return RedirectToAction("Parametre");
+        }else
+        {
+            return View(model);
+        }
+    }
 
 }
