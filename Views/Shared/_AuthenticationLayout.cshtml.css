@@ -21,3 +21,9 @@ nav ul {
 nav ul li a p {
 	color: var(--couleurde_base);
 }
+
+@media screen and (max-width: 700px) {
+	.menu-elements {
+		display: none
+	}
+}
