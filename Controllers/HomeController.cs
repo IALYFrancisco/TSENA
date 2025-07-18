@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Text;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using TSENA.Models;
 using System.Security.Claims;
@@ -64,9 +66,29 @@ public class HomeController : Controller
         return View();
     }
 
-    // [HttpPost]
-    // public Task<IActionResult> ChangePassword(ChangePasswordModel model, User user){
-    //     return View(model);
-    // }
+    [HttpPost]
+    public async Task<IActionResult> ChangePassword(ChangePasswordModel model){
+        if(ModelState.IsValid){
+            var email = User.FindFirstValue(ClaimTypes.Email); 
+            var user = await _context.User.FirstOrDefaultAsync(u => u.Email == email);
+            if(model.NewPassword == model.ConfirmPassword){
+                model.NewPassword = HashPassword(model.NewPassword);
+                user.Password = model.NewPassword; 
+            }
+            _context.User.Update(user);
+            _context.SaveChanges();
+            return RedirectToAction("Parametre");
+        }else
+        {
+            return View(model);
+        }
+    }
+
+    private string HashPassword(string Password){
+        using (var sha256 = SHA256.Create()){
+            byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+            return Convert.ToBase64String(hashBytes);
+        }
+    }
 
 }

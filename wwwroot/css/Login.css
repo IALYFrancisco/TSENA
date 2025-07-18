@@ -1,11 +1,11 @@
-form#Auth-form,
-form#Forgot-Password-Form {
+#Auth-form,
+#Forgot-Password-Form {
     width: 95%;
     max-width: 300px;
     margin: 100px auto 0 auto;
 }
 
-form#new-password {
+#new-password {
     width: 95%;
     max-width: 450px;
     margin: 100px auto 0 auto;
@@ -63,18 +63,18 @@ label {
     font-size: 14px;
 }
 
-form#Auth-form .button-container {
+#Auth-form .button-container {
     display: flex;
     justify-content: space-between;
     align-items: end;
 }
 
-form#Auth-form a {
+#Auth-form a {
     color: var(--couleurde_base);
     font-size: 13px;
 }
 
-form#Auth-form a:hover {
+#Auth-form a:hover {
     text-decoration: underline;
 }
 
