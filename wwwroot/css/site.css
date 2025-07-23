@@ -1,5 +1,5 @@
 @font-face {
-  font-family: test;
+  font-family: Rainly;
   src: url(../font/rainly-font/RainlyRegular-OVl7O.otf);
 }
 
@@ -142,9 +142,8 @@ body div.container div.right_side_bar nav ul li div.profil img{
 }
 
 .logo a {
-  font-family: test;
+  font-family: Rainly;
   font-size: 40px;
-  margin-left: 15px;
   cursor:pointer;
   display: flex;
   align-items: center;
