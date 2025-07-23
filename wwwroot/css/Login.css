@@ -1,3 +1,7 @@
+.menu-elements li a{
+	color: var(--couleurde_base) !important;
+}
+
 #Auth-form,
 #Forgot-Password-Form {
     width: 95%;
@@ -108,4 +112,14 @@ label {
 
 .alert-error {
     background-color: crimson;
+}
+
+header nav section {
+	display: none;
+}
+
+@media only screen and (max-width: 700px){
+    header nav section {
+        display: block;
+    }
 }

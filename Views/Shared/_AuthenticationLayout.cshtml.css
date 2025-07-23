@@ -18,12 +18,11 @@ nav ul {
 	column-gap :20px;
 }
 
-nav ul li a p {
-	color: var(--couleurde_base);
-}
-
 @media screen and (max-width: 700px) {
 	.menu-elements {
 		display: none
+	}
+	nav {
+		padding: 0 15px 0 15px;
 	}
 }
